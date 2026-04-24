@@ -11,6 +11,11 @@
 </head>
 
 <body>
+<div id="submitOverlay" class="overlay"></div>
+    <div id="submitPopup" class="popup">
+        <p>All set! Your message has been delivered</p>
+        <button>X</button>
+    </div>
     <header>
         <div class="container">
             <div class="header-inner">
@@ -230,27 +235,28 @@
                     </div>
                     <div class="contact-right">
                         <h2 class="section-title">Send Me a Message</h2>
-                        <form>
+                        <form id="contactForm">
                             <div>
                                 <label for="name">Name: </label>
-                                <input id="name" type="text" placeholder="Your Name" required>
+                                <input id="name" type="text" name="name" placeholder="Your Name" required>
                             </div>
                             <div>
                                 <label for="email">Email: </label>
-                                <input id="email" type="email" placeholder="Your Email" required>
+                                <input id="email" type="email" name="email" placeholder="Your Email" required>
                             </div>
                             <div>
                                 <label for="company">Company: </label>
-                                <input id="company" type="text" placeholder="Your Company (optional)">
+                                <input id="company" type="text" name="company" placeholder="Your Company (optional)">
                             </div>
                             <div>
                                 <label for="subject">Subject: </label>
-                                <input id="subject" type="text"
+                                <input id="subject" type="text" name="subject"
                                     placeholder="Project Type (e.g. Landingpage, Website, etc.)" required>
                             </div>
                             <div>
                                 <label for="message">Message: </label>
-                                <textarea id="message" placeholder="Tell me about your project…" required></textarea>
+                                <textarea id="message" name="message" placeholder="Tell me about your project…"
+                                    required></textarea>
                             </div>
                             <div>
                                 <button type="submit">Send Message</button>
@@ -267,6 +273,32 @@
             <p>© 2026 AbdusSite. All rights reserved.</p>
         </div>
     </footer>
+<script>
+        const form = document.getElementById("contactForm")
+        const popup = document.getElementById("submitPopup");
+        const overlay = document.getElementById("submitOverlay")
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const data = Object.fromEntries(new FormData(form));
+            console.log(data);
+
+            form.reset();
+            popup.classList.add("show");
+            overlay.classList.add("show");
+            
+
+        });
+
+
+        const closeBtn = popup.querySelector("button");
+
+        closeBtn.addEventListener("click", function () {
+            popup.classList.remove("show");
+            overlay.classList.remove("show");
+        });
+    </script>
 </body>
 
 </html>
