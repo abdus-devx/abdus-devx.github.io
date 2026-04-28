@@ -29,10 +29,11 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 32px;
 }
+
 /*POPUP*/
 .overlay {
     display: none;
@@ -44,10 +45,12 @@ body {
     background: rgba(0, 0, 0, 0.9);
     z-index: 1;
 }
+
 .overlay.show {
     display: block;
-    
+
 }
+
 .popup {
     display: none;
     position: fixed;
@@ -60,9 +63,11 @@ body {
     z-index: 2;
     background-color: #001a0f;
 }
+
 .popup.show {
     display: block;
 }
+
 .closeBtn {
     position: absolute;
     top: 2px;
@@ -71,6 +76,7 @@ body {
     border: none;
     transition: 0.3s ease;
 }
+
 .closeBtn:hover {
     background-color: #00cc33;
     cursor: pointer;
@@ -78,7 +84,6 @@ body {
 }
 
 /*HEADER*/
-
 .header-inner {
     display: flex;
     justify-content: space-between;
@@ -178,18 +183,17 @@ html {
 
 .hero-left {
     max-width: 600px;
-
 }
 
 .hero-left h1 {
-    font-size: 62px;
+    font-size: 59px;
     line-height: 1;
 }
 
 .hero-left .section-title {
     font-size: 42px;
     color: #00FF41;
-    margin-bottom: 5px;
+    margin: 5px auto;
 }
 
 .hero-left .section-title::after {
@@ -245,12 +249,20 @@ html {
 }
 
 /* SKILLS SECTION*/
+.skills {
+    text-align: center;
+}
+
+.skills .section-title {
+    margin-bottom: 70px;
+}
 
 .skills-list {
     list-style: none;
     display: flex;
     text-align: center;
     justify-content: space-evenly;
+
 }
 
 .skills-list i {
@@ -569,8 +581,34 @@ html {
 }
 
 .footer {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    margin-bottom: 10px;
+}
+.footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.footer a {
+    display: inline-flex;
+    gap: 5px;
+    align-items: center;
+    text-decoration: none;
+    color: #9CA3AF;
+    font-size: 14px;
+}
+.footer a:hover {
+    color: #00cc33;
+}
+.footer h4{
+    margin-bottom: 0;
+}
+
+.copyright {
+    text-align: center;
 }
 
 @media (max-width: 768px) {
@@ -614,6 +652,10 @@ html {
         width: 100%;
     }
 
+    .skills .section-title {
+        margin-bottom: 30px;
+    }
+
     .skills-list {
 
         gap: 5px;
@@ -653,10 +695,16 @@ html {
     .social-media h5 {
         margin-bottom: 10px;
     }
+
     .popup {
         padding: 10px;
     }
-    .popup p{
+
+    .popup p {
         text-align: center;
     }
+    .footer {
+        justify-items: flex-start;
+    }
+
 }
